@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>De mi para ti ❤️</title>
+<title>🧩 De mi para ti ❤️</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -19,6 +19,9 @@
 <audio id="bgMusic" loop>
     <source src="assets/music/romantic.mp3" type="audio/mpeg">
 </audio>
+<button id="musicBtn">
+    🎵
+</button>
 
 <div id="intro">
 
@@ -78,11 +81,11 @@
     </div>
     <div class="next-section">
 
-    <button onclick="showDistance()">
-        Continuar nuestra historia ❤️
-    </button>
+        <button onclick="showDistance()">
+            Continuar nuestra historia ❤️
+        </button>
 
-</div>
+    </div>
 
 </section>
 
@@ -295,55 +298,68 @@
 
         <h2>🌼 Una flor para ti</h2>
 
-        <p>
-            Cada pétalo guarda algo que veo en ti.
+        <p class="flower-subtitle">
+            Las margaritas siempre me recuerdan a ti.
         </p>
 
-        <div class="flower">
+        <div class="flower-layout">
 
-            <div class="petal" onclick="openPetal(this)">
+            <button class="petal-btn" onclick="showFlowerMessage(1,this)">
                 Paciente
-            </div>
+            </button>
 
-            <div class="petal" onclick="openPetal(this)">
+            <button class="petal-btn" onclick="showFlowerMessage(2,this)">
+                Amorosa
+            </button>
+
+            <button class="petal-btn" onclick="showFlowerMessage(3,this)">
                 Valiente
-            </div>
+            </button>
 
-            <div class="petal" onclick="openPetal(this)">
-                Hermosa
-            </div>
-
-            <div class="petal" onclick="openPetal(this)">
+            <button class="petal-btn" onclick="showFlowerMessage(4,this)">
                 Fuerte
-            </div>
+            </button>
 
-            <div class="petal" onclick="openPetal(this)">
+            <img
+                src="assets/photos/margarita.png"
+                class="flower-image"
+                alt="Margarita">
+
+            <button class="petal-btn" onclick="showFlowerMessage(5,this)">
+                Soñadora
+            </button>
+
+            <button class="petal-btn" onclick="showFlowerMessage(6,this)">
                 Mi hogar
-            </div>
+            </button>
 
-            <div class="petal" onclick="openPetal(this)">
-                Mi amor
-            </div>
-
-            <div class="petal" onclick="openPetal(this)">
+            <button class="petal-btn" onclick="showFlowerMessage(7,this)">
                 Mi futuro
-            </div>
+            </button>
+            
+            <button class="petal-btn" onclick="showFlowerMessage(8,this)">
+                Compañera
+            </button>
 
         </div>
 
-        <div id="secretMessage" style="display:none;">
+        <div id="flowerSecret" style="display:none;">
 
-            <h3>
-                ❤️ Gracias por elegirme cada día ❤️
-            </h3>
+            <h3>🌼 Has descubierto todos mis pétalos 🌼</h3>
 
-            <p>
-                Eres una de las mejores decisiones que he tomado en mi vida.
-            </p>
+                <p>
+                    Cada uno representa algo que admiro de ti.
+                    Pero ninguna palabra puede describir completamente
+                    lo mucho que significas para mí.
+                </p>
+
+                <p>
+                    ❤️ Y aún me queda algo más por decirte ❤️
+                </p>
 
         </div>
 
-        <button onclick="showFinal()">
+        <button onclick="showEnding()">
             El último capítulo ❤️
         </button>
 
@@ -351,35 +367,51 @@
 
 </section>
 
-<section id="final" style="display:none;">
+</section>
 
-    <div class="final-container">
+<section id="ending" style="display:none;">
 
-        <h1>
+    <div class="ending-content">
+
+        <h1 id="finalTitle" class="fade-item">
             DE MI PARA TI ❤️
         </h1>
 
-        <h3>
-            Esteisy Navarro
-        </h3>
+        <div class="timeline">
 
-        <p>
-            15 de marzo de 2025
-        </p>
+            <div id="date1" class="fade-item">
+                15 de marzo de 2025
+            </div>
 
-        <p>
-            ↓
-        </p>
+            <div id="arrow" class="fade-item">
+                ↓
+            </div>
 
-        <p>
-            15 de marzo de 2027
-        </p>
-
-        <div class="final-message">
-
-            Nuestra historia apenas comienza.
+            <div id="date2" class="fade-item">
+                15 de marzo de 2027 💍
+            </div>
 
         </div>
+
+        <p id="finalText" class="fade-item">
+            Nuestra historia apenas comienza.
+        </p>
+
+        <p id="signature" class="fade-item">
+
+            Con amor,<br><br>
+
+            Ezequiel ❤️<br><br>
+
+            🧩 De mi para ti 🌼
+
+        </p>
+    
+        <button id="finalLetterBtn"
+                class="fade-item"
+                onclick="showFinalLetter()">
+            💌 Una última carta
+        </button>
 
     </div>
 
@@ -406,7 +438,70 @@
 
 </div>
 
+<div id="letterModal"
+     class="modal"
+     style="display:none;">
+
+    <div class="modal-content">
+
+        <span class="close"
+              onclick="closeFinalLetter()">
+            ✖
+        </span>
+
+        <h2>💌 Una última carta para ti</h2>
+
+        <div class="letter-content">
+
+            <p>
+                Mi amor,
+            </p>
+
+            <p>
+                Gracias por aparecer en mi vida cuando menos lo esperaba.
+            </p>
+
+            <p>
+                Gracias por cada llamada, cada abrazo,
+                cada detalle y cada momento compartido.
+            </p>
+
+            <p>
+                Hemos recorrido un camino hermoso,
+                y aunque todavía quedan kilómetros por recorrer,
+                jamás he dudado de que quiero recorrerlos contigo.
+            </p>
+
+            <p>
+                Hoy puedo decir con certeza que eres una de las mejores cosas que me han pasado.
+            </p>
+
+            <p>
+                Te amo profundamente.
+            </p>
+
+            <p>
+                Y si pudiera volver atrás,
+                volvería a elegirte una y mil veces más.
+            </p>
+
+            <p>
+                Con todo mi amor ❤️
+            </p>
+
+            <p>
+                Ezequiel 🌼
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
 <script src="script.js"></script>
+
+<div id="petals-container"></div>
 
 </body>
 
