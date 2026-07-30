@@ -241,51 +241,217 @@ seconds;
 },1000);
 
 function showFlower(){
-
-    const flower =
-    document.getElementById("flower");
-
+    const flower = document.getElementById("flower");
     flower.style.display = "flex";
-
     flower.scrollIntoView({
         behavior:"smooth"
     });
+}
+
+const flowerMessages = {
+
+1:{
+title:"🌼 Paciente",
+text:"Admiro tu paciencia incluso cuando dices que no la tienes."
+},
+
+2:{
+title:"🌼 Amorosa",
+text:"Nunca te cansas de demostrarme tu amor y eso es algo que valoro cada día."
+},
+
+3:{
+title:"🌼 Valiente",
+text:"Has enfrentado muchas cosas y aun así sigues adelante con una sonrisa."
+},
+
+4:{
+title:"🌼 Fuerte",
+text:"Me hace feliz ver en la mujer fuerte en la que te has convertido."
+},
+
+5:{
+title:"🌼 Soñadora",
+text:"Amo que tengas sueños tan grandes y que quieras construirlos conmigo."
+},
+
+6:{
+title:"🌼 Mi hogar",
+text:"Porque donde estás tú, ahí me siento en casa."
+},
+
+7:{
+title:"🌼 Mi futuro",
+text:"Cuando pienso en el futuro, siempre apareces tú."
+},
+
+8:{
+title:"🌼 Compañera",
+text:"Desde el primer día has sido mucho más que mi novia. Has sido mi compañera en los sueños, en los planes, en los días buenos y en los difíciles. Y no puedo esperar para seguir recorriendo la vida contigo."
+}
+
+};
+
+
+let flowerOpened = [];
+
+function showFlowerMessage(id, element){
+
+if(!flowerOpened.includes(id)){
+
+flowerOpened.push(id);
 
 }
 
-let openedPetals = 0;
+if(element){
 
-function openPetal(element){
-
-    if(
-        element.classList.contains("opened")
-    ){
-        return;
-    }
-
-    element.classList.add("opened");
-
-    openedPetals++;
-
-    if(openedPetals >= 7){
-
-        document
-        .getElementById("secretMessage")
-        .style.display = "block";
-
-    }
+element.classList.add("discovered");
 
 }
 
-function showFinal(){
+document.getElementById("memoryTitle").innerText =
+flowerMessages[id].title;
 
-    const final =
-    document.getElementById("final");
+document.getElementById("memoryText").innerText =
+flowerMessages[id].text;
 
-    final.style.display = "flex";
+document.getElementById("memoryModal").style.display =
+"flex";
 
-    final.scrollIntoView({
-        behavior:"smooth"
-    });
+if(flowerOpened.length === 8){
+
+document.getElementById("flowerSecret")
+.style.display = "block";
 
 }
+
+}
+
+function showEnding(){
+
+const ending =
+document.getElementById("ending");
+
+ending.style.display = "flex";
+
+ending.scrollIntoView({
+behavior:"smooth"
+});
+
+setInterval(createPetal,700);
+
+setTimeout(()=>{
+document.getElementById("finalTitle")
+.classList.add("show");
+},1000);
+
+setTimeout(()=>{
+document.getElementById("date1")
+.classList.add("show");
+},3000);
+
+setTimeout(()=>{
+document.getElementById("arrow")
+.classList.add("show");
+},5000);
+
+setTimeout(()=>{
+document.getElementById("date2")
+.classList.add("show");
+},7000);
+
+setTimeout(()=>{
+document.getElementById("finalText")
+.classList.add("show");
+},9000);
+
+setTimeout(()=>{
+document.getElementById("signature")
+.classList.add("show");
+},11000);
+
+setTimeout(()=>{
+document.getElementById("finalLetterBtn")
+.classList.add("show");
+},13000);
+
+}
+
+function createPetal(){
+
+const petal =
+document.createElement("div");
+
+petal.classList.add("petal-fall");
+
+const effects = [
+"🌼",
+"❤️",
+"✨"
+];
+
+petal.innerHTML =
+effects[
+Math.floor(
+Math.random()*effects.length
+)
+];
+
+petal.style.left =
+Math.random()*100 + "%";
+
+petal.style.animationDuration =
+(5 + Math.random()*5) + "s";
+
+document
+.getElementById("petals-container")
+.appendChild(petal);
+
+setTimeout(()=>{
+
+petal.remove();
+
+},10000);
+
+}
+
+function showFinalLetter(){
+
+document.getElementById("letterModal")
+.style.display = "flex";
+
+}
+
+function closeFinalLetter(){
+
+document.getElementById("letterModal")
+.style.display = "none";
+
+}
+
+const musicBtn =
+document.getElementById("musicBtn");
+
+let musicPlaying = false;
+
+musicBtn.addEventListener("click",()=>{
+
+if(music.paused){
+
+music.play();
+
+musicPlaying = true;
+
+musicBtn.innerHTML = "🎵";
+
+}else{
+
+music.pause();
+
+musicPlaying = false;
+
+musicBtn.innerHTML = "🔇";
+
+}
+
+});
