@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>De mi para ti ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="sparkles"></div>
+
+<audio id="bgMusic" loop>
+    <source src="assets/music/romantic.mp3" type="audio/mpeg">
+</audio>
+
+<div id="intro">
+
+    <h1 class="logo">
+        DE MI PARA TI
+    </h1>
+
+    <p class="subtitle">
+        Una historia que comenzó trabajando...
+    </p>
+
+    <button id="startBtn">
+        Comenzar ❤️
+    </button>
+
+</div>
+
+<section id="chapter1" class="hidden">
+
+    <div class="content">
+
+        <h2>
+            Capítulo 1
+        </h2>
+
+        <h3>
+            Todo comenzó trabajando
+        </h3>
+
+        <p id="typingText"></p>
+
+    </div>
+
+</section>
+
+<section id="gallery" class="hidden">
+
+    <h2>Nuestros Recuerdos ❤️</h2>
+
+    <div class="gallery-container">
+
+        <div class="polaroid" onclick="showMemory(1)">
+            <img src="assets/photos/foto1.jpg">
+            <p>El inicio de todo</p>
+        </div>
+
+        <div class="polaroid" onclick="showMemory(2)">
+            <img src="assets/photos/foto2.jpg">
+            <p>Un momento unico</p>
+        </div>
+
+        <div class="polaroid" onclick="showMemory(3)">
+            <img src="assets/photos/foto3.jpg">
+            <p>Una historia juntos</p>
+        </div>
+
+    </div>
+    <div class="next-section">
+
+    <button onclick="showDistance()">
+        Continuar nuestra historia ❤️
+    </button>
+
+</div>
+
+</section>
+
+<section id="distance" style="display:none;">
+
+    <div class="distance-container">
+
+        <h2>La distancia ❤️</h2>
+
+        <p class="distance-text">
+
+            La distancia nos separó por kilómetros.
+
+            Pero jamás logró separarnos de corazón.
+
+        </p>
+
+        <div class="cities">
+
+    <div class="city">
+        <h3>📍 El Carmen de Bolívar</h3>
+        <p>Donde alguien comenzó a soñar contigo.</p>
+    </div>
+
+    <div class="connection">
+
+        <div class="heart-line">
+            ❤️
+        </div>
+
+        <div class="line"></div>
+
+    </div>
+
+    <div class="city">
+        <h3>📍 Floridablanca</h3>
+        <p>Donde estaba la mujer que cambiaría mi vida.</p>
+    </div>
+
+    <div class="next-section">
+
+    <button onclick="showAdmiration()">
+        Lo que admiro de ti 🌼
+    </button>
+
+</div>
+
+<section id="admiration" style="display:none;">
+
+    <div class="admiration-container">
+
+        <h2>Lo que admiro de ti 🌼</h2>
+
+        <p>
+            Hay muchas cosas que amo de ti,
+            pero algunas merecen un capítulo especial.
+        </p>
+
+        <div class="cards">
+
+            <div class="card" onclick="showAdmirationCard(1)">
+                🌼 Tu paciencia
+            </div>
+
+            <div class="card" onclick="showAdmirationCard(2)">
+                ❤️ Tu forma de amar
+            </div>
+
+            <div class="card" onclick="showAdmirationCard(3)">
+                🚀 Tu fortaleza
+            </div>
+
+            <div class="card" onclick="showAdmirationCard(4)">
+                💍 Nuestro futuro
+            </div>
+
+        </div>
+
+        <div class="next-section">
+            <button onclick="showPromise()">
+                Una promesa para ti ❤️
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+    <section id="promise" style="display:none;">
+
+    <div class="promise-container">
+
+        <h2>💍 Una promesa para ti</h2>
+
+        <div class="promise-letter">
+
+            <p>
+                El 15 de marzo de 2025 comenzó nuestra historia.
+            </p>
+
+            <p>
+                No sabía exactamente cómo sería el camino.
+            </p>
+
+            <p>
+                No sabía cuántos retos vendrían.
+            </p>
+
+            <p>
+                Pero sí sabía algo:
+            </p>
+
+            <p class="highlight">
+                Que quería recorrerlo contigo.
+            </p>
+
+            <p>
+                Hoy quiero hacerte una promesa.
+            </p>
+
+            <p>
+                No te prometo una vida perfecta.
+            </p>
+
+            <p>
+                No te prometo días sin dificultades.
+            </p>
+
+            <p>
+                Te prometo que cuando lleguen,
+                los enfrentaremos juntos.
+            </p>
+
+            <p>
+                Te prometo elegirte una y otra vez.
+            </p>
+
+            <p>
+                Te prometo seguir construyendo nuestros sueños.
+            </p>
+
+            <p class="highlight">
+                Porque el 15 de marzo de 2027
+                no será el final de nuestra historia.
+            </p>
+
+            <p class="highlight">
+                Será el comienzo de una nueva etapa.
+            </p>
+
+        </div>
+
+        <button onclick="showCountdown()">
+            Nuestro gran día ❤️
+        </button>
+
+    </div>
+
+</section>
+
+<section id="countdown" style="display:none;">
+
+    <div class="countdown-container">
+
+        <h2>💍 Nuestro gran día</h2>
+
+        <p class="countdown-subtitle">
+            Cada segundo nos acerca un poco más.
+        </p>
+
+        <div class="countdown-box">
+
+            <div class="time-box">
+                <span id="days">0</span>
+                <small>Días</small>
+            </div>
+
+            <div class="time-box">
+                <span id="hours">0</span>
+                <small>Horas</small>
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">0</span>
+                <small>Minutos</small>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">0</span>
+                <small>Segundos</small>
+            </div>
+
+        </div>
+
+        <h3 class="wedding-date">
+            ❤️ 15 de marzo de 2027 ❤️
+        </h3>
+
+        <button onclick="showFlower()">
+            Tengo algo más para ti 🌼
+        </button>
+
+    </div>
+
+</section>
+
+<section id="flower" style="display:none;">
+
+    <div class="flower-container">
+
+        <h2>🌼 Una flor para ti</h2>
+
+        <p>
+            Cada pétalo guarda algo que veo en ti.
+        </p>
+
+        <div class="flower">
+
+            <div class="petal" onclick="openPetal(this)">
+                Paciente
+            </div>
+
+            <div class="petal" onclick="openPetal(this)">
+                Valiente
+            </div>
+
+            <div class="petal" onclick="openPetal(this)">
+                Hermosa
+            </div>
+
+            <div class="petal" onclick="openPetal(this)">
+                Fuerte
+            </div>
+
+            <div class="petal" onclick="openPetal(this)">
+                Mi hogar
+            </div>
+
+            <div class="petal" onclick="openPetal(this)">
+                Mi amor
+            </div>
+
+            <div class="petal" onclick="openPetal(this)">
+                Mi futuro
+            </div>
+
+        </div>
+
+        <div id="secretMessage" style="display:none;">
+
+            <h3>
+                ❤️ Gracias por elegirme cada día ❤️
+            </h3>
+
+            <p>
+                Eres una de las mejores decisiones que he tomado en mi vida.
+            </p>
+
+        </div>
+
+        <button onclick="showFinal()">
+            El último capítulo ❤️
+        </button>
+
+    </div>
+
+</section>
+
+<section id="final" style="display:none;">
+
+    <div class="final-container">
+
+        <h1>
+            DE MI PARA TI ❤️
+        </h1>
+
+        <h3>
+            Esteisy Navarro
+        </h3>
+
+        <p>
+            15 de marzo de 2025
+        </p>
+
+        <p>
+            ↓
+        </p>
+
+        <p>
+            15 de marzo de 2027
+        </p>
+
+        <div class="final-message">
+
+            Nuestra historia apenas comienza.
+
+        </div>
+
+    </div>
+
+</section>
+
+</div>
+    
+
+</section>
+
+<div id="memoryModal" class="modal" style="display:none;">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeMemory()">
+            ✖
+        </span>
+
+        <h3 id="memoryTitle"></h3>
+
+        <p id="memoryText"></p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
